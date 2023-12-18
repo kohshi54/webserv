@@ -13,7 +13,7 @@
 int main (int argc, char **argv)
 {
 	int listenfd, connfd, n;
-	socklen_t clilen;
+	socklen_t client;
 	char buf[MAXLINE];
 	struct sockaddr_in cliaddr, servaddr;
 	
@@ -33,8 +33,8 @@ int main (int argc, char **argv)
 	
 	for ( ; ; )
 	{
-		clilen = sizeof(cliaddr);
-		connfd = accept (listenfd, (struct sockaddr *) &cliaddr, &clilen);
+		client = sizeof(cliaddr);
+		connfd = accept (listenfd, (struct sockaddr *) &cliaddr, &client);
 		printf("%s\n","Received request...");
 			
 		while ( (n = recv(connfd, buf, MAXLINE,0)) > 0)
