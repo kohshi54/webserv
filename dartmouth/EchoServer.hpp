@@ -26,15 +26,17 @@ class EchoServer
 	private:
 		int listenfd;
 		struct sockaddr_in servaddr;
-		RequestHandler *requestHandler;
+		//RequestHandler *requestHandler;
 		ConnManager *connManager;
 };
 
+/*
 class RequestHandler
 {
 	public:
 		void readMessage();
 };
+*/
 
 class ConnManager
 {
