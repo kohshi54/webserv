@@ -1,0 +1,17 @@
+on: [pull_request]
+
+jobs:
+  clang-tidy:
+    name: runner / clang-tidy
+    runs-on: ubuntu-latest
+    container: 
+      image: ghcr.io/reviewdog/action-clang-tidy:v1
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: clang-tidy
+        uses: reviewdog/action-clang-tidy@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
