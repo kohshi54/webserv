@@ -1,13 +1,35 @@
-name: compile test (macOS)
+name: Compile Test
 
 on: [push]
 
 jobs:
-  build:
+  build-macos:
+    name: Build on macOS
     runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run make
+    - name: Run make (macOS)
       run: make -C ver-2/
+
+  build-ubuntu:
+    name: Build on Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run make (Ubuntu)
+      run: make -C ver-2/
+
+  build-windows:
+    name: Build on Windows
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run make (Windows)
+      run: make -C ver-2/
+
