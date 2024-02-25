@@ -5,13 +5,14 @@ jobs:
     name: runner / clang-tidy
     runs-on: ubuntu-latest
     container: 
-      image: ghcr.io/reviewdog/action-clang-tidy:v1
+      image: ghcr.io/arkedge/action-clang-tidy:v1
     steps:
       - name: Check out code
         uses: actions/checkout@v2
 
       - name: clang-tidy
-        uses: reviewdog/action-clang-tidy@v1
+        uses: arkedge/action-clang-tidy@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
+
